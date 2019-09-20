@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>HW1 Po-Chun Chen N11957611</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 52px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h2 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h3 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h4 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h5 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.section h6 {
+  padding-top: 57px;
+  margin-top: -57px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Kevin's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About Me</a>
+</li>
+<li>
+  <a href="HW1_pcc402.html">Homework 1</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">HW1 Po-Chun Chen N11957611</h1>
+
+</div>
+
+
+<div id="chapter-2" class="section level2">
+<h2>Chapter 2</h2>
+<div id="section" class="section level3">
+<h3>2.5</h3>
+<div id="answer-bde" class="section level4">
+<h4>Answer: b,d,e</h4>
+<p>Let the sample space S represent two coin tosses using a fair coin. Let A be outcomes in S with at least one head, and let B be an outcome with two heads. Which of the following are true? </br> a. S ⊂ A</br> b. head ∩ head ∈ A</br> c. head ∩ tail ∉ A</br> d. S ⊃ B</br> e. A ⊄ B</br></p>
+<p>Let H denote Head and T denote Tail:</br> S(Universal Set) = {HH,HT,TH,TT}</br> A = {HH,HT,TH} at least one head</br> B = {HH} with two heads</br></p>
+</div>
+</div>
+<div id="section-1" class="section level3">
+<h3>2.6</h3>
+<div id="answer-ab" class="section level4">
+<h4>Answer: a,b</h4>
+<p>Which of the following are true?</br> a. If P(A ∪ B) = P(A), then B ⊂ A</br> b. If P(A ∩ B) = P(B), then B ⊂ A</br></p>
+<p><span class="math display">\[\begin{equation}\begin{split}P(A \cup B) &amp; = P(A)+P(B)-P(A \cap B)\end{split}\end{equation}\]</span> <span class="math display">\[\because in \,option\,a\, P(A ∪ B) = P(A) \]</span> <span class="math display">\[\therefore P(B) = P(A \cap B)\\B \subset A\]</span> <span class="math display">\[\because in \,option\,b\, P(A ∩ B) = P(B) \]</span> <span class="math display">\[\therefore P(A) = P(A \cup B)\\B \subset A\]</span></p>
+</div>
+</div>
+<div id="section-2" class="section level3">
+<h3>2.13</h3>
+<div id="answer-32" class="section level4">
+<h4>Answer: 32</h4>
+<p>What are all the possible outcomes (in head and tails) for a toss using five coins. (see Theorem 2.2)?<br></p>
+<p><span class="math display">\[ Number= 2^5 \\= 32\]</span> S = {HHHHH, HHHHT, HHHTH, HHTHH, …TTTTT}</p>
+</div>
+</div>
+<div id="section-3" class="section level3">
+<h3>2.16</h3>
+<p><span class="math display">\[Using\, the\, definitions\, of\, r!\, and\, n!\, (Equation 2.23)\, and\, \binom{n}{r}\]</span> <span class="math display">\[ prove \,\binom{n}{r} = \binom{n-1}{r-1}+\binom{n-1}{r}\]</span></p>
+<p><span class="math display">\[\binom{n}{r} = \frac{n!}{r!(n-r)!}\]</span></p>
+<p><span class="math display">\[\begin{equation}\begin{split}\frac{n!}{r!(n-r)!} &amp;= \frac{(n-1)!}{(n-1-(r-1)!(r-1)!} + \frac{(n-1)!}{(n-1-r)!r!} \\&amp;=  \frac{(n-1)!}{(n-r)!(r-1)!} + \frac{(n-1)!}{(n-1-r)!r!}\\&amp;= \frac{(n-1)!}{(n-r)!r!}*r + \frac{(n-1)!}{(n-r)!r!}*(n-r)\end{split}\end{equation}\]</span> Both side divided by r!(n-r)!</p>
+<p><span class="math display">\[ \begin{equation}\begin{split}n! &amp;= (n-1)!*r+(n-1)!*n-r\\&amp;=(n-1)!*(n-r+r)\\&amp;=(n-1)!*n\\&amp;=n!\end{split}\end{equation}\]</span></p>
+</div>
+<div id="section-4" class="section level3">
+<h3>2.17</h3>
+<div id="answer-256" class="section level4">
+<h4>Answer: 256</h4>
+<p>DNA contains the nucleotide bases (G, A, T, C). How many different ways can the bases be rearranged in a 4 base pair strand?</p>
+<p>Four spaces with four kinds of nucleotides = <span class="math display">\[ 4^4 = 256 \]</span></p>
+</div>
+</div>
+</div>
+<div id="chapter-3" class="section level2">
+<h2>Chapter 3</h2>
+<div id="section-5" class="section level3">
+<h3>3.1</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">x</th>
+<th align="left">−1</th>
+<th align="left">0</th>
+<th align="left">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">f(x)</td>
+<td align="left">1/8</td>
+<td align="left">6/8</td>
+<td align="left">1/8</td>
+</tr>
+</tbody>
+</table>
+<p>Let X be a discrete random variable whose pdf is described in the table given here:</br> Find the following:</br> a. P(X = 0)</br> b. P(X &lt; 10)</br> c. P(0 &gt; X &gt; 0)</br> d. P(X ≤ 1)</br> e. F(1)</br> f. F−1(7/8)</br> g. R(x), that is, the survivorship function</br> h. f(x)/R(x), that is, the hazard function</br></p>
+<div id="a." class="section level4">
+<h4>a.</h4>
+<p><span class="math display">\[P(X = 0)=6/8\]</span></p>
+</div>
+<div id="b." class="section level4">
+<h4>b.</h4>
+<p><span class="math display">\[P(X &lt; 10)=1=P(X =-1)+P(X =1)+P(X =0)=1\]</span></p>
+</div>
+<div id="c." class="section level4">
+<h4>c.</h4>
+<p><span class="math display">\[P(0 &gt; X &gt; 0)=0\,\\It\, is\,an\,empty\,set\]</span></p>
+</div>
+<div id="d." class="section level4">
+<h4>d.</h4>
+<p><span class="math display">\[P(X ≤ 1)=1\]</span></p>
+</div>
+<div id="e." class="section level4">
+<h4>e.</h4>
+<p><span class="math display">\[F(1)=1\]</span></p>
+</div>
+<div id="f." class="section level4">
+<h4>f.</h4>
+<p><span class="math display">\[ F^{-1}(7/8)=0\geq x\geq-1\, or\, 1\geq x\geq0\ \]</span></p>
+</div>
+<div id="g." class="section level4">
+<h4>g.</h4>
+<p><span class="math display">\[R(X)=1-F(X)\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">x</th>
+<th align="left">−1</th>
+<th align="left">0</th>
+<th align="left">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">f(x)</td>
+<td align="left">1/8</td>
+<td align="left">6/8</td>
+<td align="left">1/8</td>
+</tr>
+<tr class="even">
+<td align="right">fc(x)</td>
+<td align="left">1/8</td>
+<td align="left">7/8</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">R(x)</td>
+<td align="left">7/8</td>
+<td align="left">1/8</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="h." class="section level4">
+<h4>h.</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="right">x</th>
+<th align="left">−1</th>
+<th align="left">0</th>
+<th align="left">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">f(x)</td>
+<td align="left">1/8</td>
+<td align="left">6/8</td>
+<td align="left">1/8</td>
+</tr>
+<tr class="even">
+<td align="right">fc(x)</td>
+<td align="left">1/8</td>
+<td align="left">7/8</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right">R(x)</td>
+<td align="left">7/8</td>
+<td align="left">1/8</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right">f(x)/R(x)</td>
+<td align="left">1/7</td>
+<td align="left">6</td>
+<td align="left">undefined</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-6" class="section level3">
+<h3>3.2</h3>
+<p>Assume that leaf biomass (in grams) from the plant Salix arctica follows the pdf,</br> f(x) = 2(x + 1)^-3 for x &gt; 0.</br> Find the probability of a leaf being between 0 and 3 g, that is, P(0 &lt; X &lt; 3).</br> Solve by hand using calculus. Verify your result using R.</br></p>
+<p><span class="math display">\[\int_0 ^3 2(x+1)^{-3} dx = \\ 2*\int_0 ^3 (x+1)^{-3} dx\]</span> Substitute u=x+1</p>
+<p><span class="math display">\[2*\int_0 ^3 u^{-3} dx = \\ -\int_0 ^3 u^{-2} dx =\\ -  (x+1)^{-2}|3,0 +C = 15/16 = 0.9375\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {2*(x+1)^-3}
+integrate(integrand, lower = 0, upper = 3)</code></pre>
+<pre><code>## 0.9375 with absolute error &lt; 5.3e-08</code></pre>
+</div>
+<div id="section-7" class="section level3">
+<h3>3.3</h3>
+<p>Let X be a continuous random variable with the pdf f(x) = 3x^2 if 0 &lt; x &lt; 1. Find the following by hand, using calculus if necessary. Verify your results using R.</br> a. P(X = 0.5), explain your answer</br> b. P(X &lt; 1), explain your answer</br> c. P(X ≤ 1), explain your answer</br> d. P(X &gt; 1), explain your answer</br> e. P(X &lt; 0.7)</br> f. P(0.1 &lt; X &lt; 0.6)</br></p>
+<div id="a.-1" class="section level4">
+<h4>a.</h4>
+<p><span class="math display">\[P(X = 0.5)=\int_{1/2}^{1/2} 3x^{2} dx = [x^3]_{1/2}^{1/2}=0\]</span> Since x is continuous, the probability that x takes on any specific value x is 0</p>
+<pre class="r"><code>integrand &lt;- function(x) {3*(x)^2}
+integrate(integrand, lower = 1/2, upper = 1/2)</code></pre>
+<pre><code>## 0 with absolute error &lt; 0</code></pre>
+</div>
+<div id="b.-1" class="section level4">
+<h4>b.</h4>
+<p><span class="math display">\[P(X &lt; 1)=\int_{0}^{1} 3x^{2} dx = [x^3]_{0}^{1}=1\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 1)</code></pre>
+<pre><code>## 1 with absolute error &lt; 1.1e-14</code></pre>
+</div>
+<div id="c.-1" class="section level4">
+<h4>c.</h4>
+<p><span class="math display">\[P(X \leq 1)=\int_{0}^{1} 3x^{2} dx = [x^3]_{0}^{1}=1\]</span> The probability of x at 1 is 0</p>
+<pre class="r"><code>integrand &lt;- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 1)</code></pre>
+<pre><code>## 1 with absolute error &lt; 1.1e-14</code></pre>
+</div>
+<div id="d.-1" class="section level4">
+<h4>d.</h4>
+<p><span class="math display">\[P(X &gt; 1)= 0\]</span></p>
+</div>
+<div id="e.-1" class="section level4">
+<h4>e.</h4>
+<p><span class="math display">\[P(X &lt; 0.7)= \int_{0}^{0.7} 3x^{2} dx = [x^3]_{0}^{0.7}=0.343\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 0.7)</code></pre>
+<pre><code>## 0.343 with absolute error &lt; 3.8e-15</code></pre>
+</div>
+<div id="f.-1" class="section level4">
+<h4>f.</h4>
+<p><span class="math display">\[P(0.1&lt; X &lt; 0.6)= \int_{0}^{0.6} 3x^{2} dx = [x^3]_{0.1}^{0.6}=0.215\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {3*(x)^2}
+integrate(integrand, lower = 0.1, upper = 0.6)</code></pre>
+<pre><code>## 0.215 with absolute error &lt; 2.4e-15</code></pre>
+</div>
+</div>
+<div id="section-8" class="section level3">
+<h3>3.4</h3>
+<p>Let X be a continuous random variable with the pdf f(x) = e^−x, for x &gt; 0. Find the following by hand, using calculus if necessary. Verify your results using R.</br> a. P(X &lt; 0), explain your answer</br> b. P(X &gt; 0), explain your answer</br> c. P(X &lt; 0.5)</br> d. P(X ≤ 0.5), explain your answer</br> e. P(0.1 &lt; X &lt; 1)</br></p>
+<div id="a.-2" class="section level4">
+<h4>a.</h4>
+<p><span class="math display">\[P(X &lt; 0)=\int_{-\infty}^{0} e^{-x} dx =0\]</span></p>
+</div>
+<div id="b.-2" class="section level4">
+<h4>b.</h4>
+<p><span class="math display">\[P(X &gt; 0)=\int_{0}^{\infty} e^{-x} dx = [-e^{-x}+C]_0^\infty =1\]</span> Since x&gt;0, the probability of x&gt;0 is 1</p>
+<pre class="r"><code>integrand &lt;- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = Inf)</code></pre>
+<pre><code>## 1 with absolute error &lt; 5.7e-05</code></pre>
+</div>
+<div id="c.-2" class="section level4">
+<h4>c.</h4>
+<p><span class="math display">\[P(X &lt;0.5)=\int_{0}^{0.5} e^{-x} dx = [-e^{-x}+C]_0^{0.5} = 1-\frac{1}{\sqrt{e}}\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = 0.5)</code></pre>
+<pre><code>## 0.3934693 with absolute error &lt; 4.4e-15</code></pre>
+</div>
+<div id="d.-2" class="section level4">
+<h4>d.</h4>
+<p><span class="math display">\[P(X \leq 0.5)=\int_{0}^{0.5} e^{-x} dx = [-e^{-x}+C]_0^{0.5} = 1-\frac{1}{\sqrt{e}}\]</span> because x is continuous and the probability that x takes on any specific value x is 0</p>
+<pre class="r"><code>integrand &lt;- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = 0.5)</code></pre>
+<pre><code>## 0.3934693 with absolute error &lt; 4.4e-15</code></pre>
+</div>
+<div id="d.-3" class="section level4">
+<h4>d.</h4>
+<p><span class="math display">\[P(0.1&lt;X&lt;1)=\int_{0.1}^{1} e^{-x} dx = [-e^{-x}+C]_{0.1}^{1} = e^{-1/10}-e^{-1}\simeq0.53\]</span></p>
+<pre class="r"><code>integrand &lt;- function(x) {exp(-x)}
+integrate(integrand, lower = 0.1, upper = 1)</code></pre>
+<pre><code>## 0.536958 with absolute error &lt; 6e-15</code></pre>
+</div>
+</div>
+<div id="section-9" class="section level3">
+<h3>3.5</h3>
+<p>You are working on a mark–recapture study of boreal toads, Bufo boreas. </br> You predict that there is a 40% chance of capturing a marked toad for each of 30 traps that you establish.</br> a. What is the probability that exactly 20 marked toads will be found in the 30</br> traps? Calculate this by hand, and confirm your calculation using R.</br> b. What is the probability that up to 20 marked toads will be found? Use R.</br> c. How do these values change if your estimated probability of recapture is 30%, not 40%?</br></p>
+<div id="a.-3" class="section level4">
+<h4>a.</h4>
+<p><span class="math display">\[P(X=20)=\binom{30}{20}(0.4)^{20}(0.6)^{10}\simeq0.002\]</span></p>
+<pre class="r"><code>dbinom(20,size = 30,prob = 0.4)</code></pre>
+<pre><code>## [1] 0.001997491</code></pre>
+</div>
+<div id="b.-3" class="section level4">
+<h4>b.</h4>
+<p><span class="math display">\[P(X\leq20) = \sum_{x\leq20}f(x) \]</span></p>
+<pre class="r"><code>sum(dbinom(0:20, 30, 0.4))</code></pre>
+<pre><code>## [1] 0.9991436</code></pre>
+</div>
+<div id="c.-3" class="section level4">
+<h4>c.</h4>
+<p>The values become smaller in a but larger in b</p>
+<pre class="r"><code>dbinom(20,size = 30,prob = 0.3)</code></pre>
+<pre><code>## [1] 2.959225e-05</code></pre>
+<pre class="r"><code>sum(dbinom(0:20, 30, 0.3))</code></pre>
+<pre><code>## [1] 0.9999927</code></pre>
+</div>
+</div>
+<div id="section-10" class="section level3">
+<h3>3.8</h3>
+<p>What is the probability that a predator will capture its third prey item after six independent attempts given that its probability of capturing prey per attempt is 0.3?</br></p>
+<pre class="r"><code>choose(6,2)*(0.3)^2*(0.7)^4*0.3</code></pre>
+<pre><code>## [1] 0.0972405</code></pre>
+<pre class="r"><code>dbinom(2,6,0.3)*0.3</code></pre>
+<pre><code>## [1] 0.0972405</code></pre>
+</div>
+<div id="section-11" class="section level3">
+<h3>3.17</h3>
+<p>Complete the following. Show all code.</br> a. Create an R object, X, with 10000 random observations from N(0, 1) using rnorm.</br> b. Square X, call this object Y.</br> c. Create an ecdf of Y. Now find the empirical probability P(Y &lt; 1).</br> d. Assume X ~ χ2(1) and calculate P(X &lt; 1). Comment on your results.</br></p>
+<div id="a.-4" class="section level4">
+<h4>a.</h4>
+<pre class="r"><code>x&lt;-rnorm(10000,0,1)</code></pre>
+</div>
+<div id="b.-4" class="section level4">
+<h4>b.</h4>
+<pre class="r"><code>y&lt;-x^2</code></pre>
+</div>
+<div id="c.-4" class="section level4">
+<h4>c.</h4>
+<pre class="r"><code>ecdf(y)</code></pre>
+<pre><code>## Empirical CDF 
+## Call: ecdf(y)
+##  x[1:10000] = 7.2663e-09, 1.4841e-08, 4.0773e-08,  ...,  13.08, 13.525</code></pre>
+<pre class="r"><code>ecdf(y)(1)</code></pre>
+<pre><code>## [1] 0.6774</code></pre>
+</div>
+<div id="d.-4" class="section level4">
+<h4>d.</h4>
+<pre class="r"><code>pchisq(1,df=1)</code></pre>
+<pre><code>## [1] 0.6826895</code></pre>
+<p>two probabilities are almost the same</p>
+</div>
+</div>
+<div id="section-12" class="section level3">
+<h3>3.18</h3>
+<p>Assume that the number of sightings for bald eagles (Haliaeetus leucocephalus) at a site over a 4-week period is Poisson distributed (temporally random) with a mean λ = 10. What is the probability of having 15 sightings over a 4-week period?</p>
+<pre class="r"><code>dpois(15,10)</code></pre>
+<pre><code>## [1] 0.03471807</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

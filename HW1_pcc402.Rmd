@@ -1,0 +1,336 @@
+---
+title: "HW1 Po-Chun Chen N11957611"
+output:
+  html_document:
+    theme: spacelab
+    toc: true
+    toc_depth: 3
+    number_sections: false
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+
+
+## Chapter 2 
+### 2.5 
+#### Answer: b,d,e
+
+Let the sample space S represent two coin tosses using a fair coin. Let A be outcomes
+in S with at least one head, and let B be an outcome with two heads. Which
+of the following are true? </br>
+a. S ⊂ A</br>
+b. head ∩ head ∈ A</br>
+c. head ∩ tail ∉ A</br>
+d. S ⊃ B</br>
+e. A ⊄ B</br>
+
+Let H denote Head and T denote Tail:</br>
+S(Universal Set) = {HH,HT,TH,TT}</br>
+A = {HH,HT,TH} at least one head</br>
+B = {HH} with two heads</br>
+
+### 2.6
+#### Answer: a,b
+
+Which of the following are true?</br>
+a. If P(A ∪ B) = P(A), then B ⊂ A</br>
+b. If P(A ∩ B) = P(B), then B ⊂ A</br>
+
+$$\begin{equation}\begin{split}P(A \cup B) & = P(A)+P(B)-P(A \cap B)\end{split}\end{equation}$$
+$$\because in \,option\,a\, P(A ∪ B) = P(A) $$
+$$\therefore P(B) = P(A \cap B)\\B \subset A$$ 
+$$\because in \,option\,b\, P(A ∩ B) = P(B) $$
+$$\therefore P(A) = P(A \cup B)\\B \subset A$$ 
+
+### 2.13
+#### Answer: 32
+What are all the possible outcomes (in head and tails) for a toss using five coins.
+(see Theorem 2.2)?<br>
+
+$$ Number= 2^5 \\= 32$$
+S = {HHHHH, HHHHT, HHHTH, HHTHH, ...TTTTT}
+
+### 2.16
+
+$$Using\, the\, definitions\, of\, r!\, and\, n!\, (Equation 2.23)\, and\, \binom{n}{r}$$
+$$ prove \,\binom{n}{r} = \binom{n-1}{r-1}+\binom{n-1}{r}$$
+
+$$\binom{n}{r} = \frac{n!}{r!(n-r)!}$$
+
+
+$$\begin{equation}\begin{split}\frac{n!}{r!(n-r)!} &= \frac{(n-1)!}{(n-1-(r-1)!(r-1)!} + \frac{(n-1)!}{(n-1-r)!r!} \\&=  \frac{(n-1)!}{(n-r)!(r-1)!} + \frac{(n-1)!}{(n-1-r)!r!}\\&= \frac{(n-1)!}{(n-r)!r!}*r + \frac{(n-1)!}{(n-r)!r!}*(n-r)\end{split}\end{equation}$$
+Both side divided by r!(n-r)!
+
+$$ \begin{equation}\begin{split}n! &= (n-1)!*r+(n-1)!*n-r\\&=(n-1)!*(n-r+r)\\&=(n-1)!*n\\&=n!\end{split}\end{equation}$$
+
+### 2.17
+#### Answer: 256
+
+DNA contains the nucleotide bases (G, A, T, C). How many different ways can the
+bases be rearranged in a 4 base pair strand?
+
+Four spaces with four kinds of nucleotides = $$ 4^4 = 256 $$
+
+
+## Chapter 3
+### 3.1 
+
+|x| −1|0|1|
+|--:|:--|:--|:--|
+|f(x)|1/8|6/8|1/8|
+
+Let X be a discrete random variable whose pdf is described in the table given here:</br>
+Find the following:</br>
+a. P(X = 0)</br>
+b. P(X < 10)</br>
+c. P(0 > X > 0)</br>
+d. P(X ≤ 1)</br>
+e. F(1)</br>
+f. F−1(7/8)</br>
+g. R(x), that is, the survivorship function</br>
+h. f(x)/R(x), that is, the hazard function</br>
+
+#### a.
+$$P(X = 0)=6/8$$
+
+#### b.
+$$P(X < 10)=1=P(X =-1)+P(X =1)+P(X =0)=1$$
+
+#### c.
+$$P(0 > X > 0)=0\,\\It\, is\,an\,empty\,set$$
+
+#### d.
+$$P(X ≤ 1)=1$$
+
+#### e.
+$$F(1)=1$$
+
+#### f.
+$$ F^{-1}(7/8)=0\geq x\geq-1\, or\, 1\geq x\geq0\ $$
+
+#### g.
+$$R(X)=1-F(X)$$
+
+|x| −1|0|1|
+|--:|:--|:--|:--|
+|f(x)|1/8|6/8|1/8|
+|fc(x)|1/8|7/8|1|
+|R(x)|7/8|1/8|0|
+
+#### h.
+
+|x| −1|0|1|
+|--:|:--|:--|:--|
+|f(x)|1/8|6/8|1/8|
+|fc(x)|1/8|7/8|1|
+|R(x)|7/8|1/8|0|
+|f(x)/R(x)|1/7|6|undefined|
+
+### 3.2 
+
+Assume that leaf biomass (in grams) from the plant Salix arctica follows the pdf,</br>
+f(x) = 2(x + 1)^-3 for x > 0.</br>
+Find the probability of a leaf being between 0 and 3 g, that is, P(0 < X < 3).</br> 
+Solve by hand using calculus. Verify your result using R.</br>
+
+$$\int_0 ^3 2(x+1)^{-3} dx = \\ 2*\int_0 ^3 (x+1)^{-3} dx$$
+Substitute u=x+1
+
+$$2*\int_0 ^3 u^{-3} dx = \\ -\int_0 ^3 u^{-2} dx =\\ -  (x+1)^{-2}|3,0 +C = 15/16 = 0.9375$$
+
+```{r}
+integrand <- function(x) {2*(x+1)^-3}
+integrate(integrand, lower = 0, upper = 3)
+```
+
+
+### 3.3
+
+Let X be a continuous random variable with the pdf f(x) = 3x^2 if 0 < x < 1. Find the
+following by hand, using calculus if necessary. Verify your results using R.</br>
+a. P(X = 0.5), explain your answer</br>
+b. P(X < 1), explain your answer</br>
+c. P(X ≤ 1), explain your answer</br>
+d. P(X > 1), explain your answer</br>
+e. P(X < 0.7)</br>
+f. P(0.1 < X < 0.6)</br>
+
+
+#### a.
+$$P(X = 0.5)=\int_{1/2}^{1/2} 3x^{2} dx = [x^3]_{1/2}^{1/2}=0$$
+Since x is continuous, the probability that x takes on any specific value x is 0
+
+```{r}
+integrand <- function(x) {3*(x)^2}
+integrate(integrand, lower = 1/2, upper = 1/2)
+```
+
+#### b.
+$$P(X < 1)=\int_{0}^{1} 3x^{2} dx = [x^3]_{0}^{1}=1$$
+```{r}
+integrand <- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 1)
+```
+
+#### c.
+$$P(X \leq 1)=\int_{0}^{1} 3x^{2} dx = [x^3]_{0}^{1}=1$$
+The probability of x at 1 is 0
+```{r}
+integrand <- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 1)
+```
+
+#### d.
+$$P(X > 1)= 0$$
+
+#### e.
+$$P(X < 0.7)= \int_{0}^{0.7} 3x^{2} dx = [x^3]_{0}^{0.7}=0.343$$
+
+```{r}
+integrand <- function(x) {3*(x)^2}
+integrate(integrand, lower = 0, upper = 0.7)
+```
+
+#### f.
+$$P(0.1< X < 0.6)= \int_{0}^{0.6} 3x^{2} dx = [x^3]_{0.1}^{0.6}=0.215$$
+
+```{r}
+integrand <- function(x) {3*(x)^2}
+integrate(integrand, lower = 0.1, upper = 0.6)
+```
+
+### 3.4
+Let X be a continuous random variable with the pdf f(x) = e^−x, for x > 0. Find the
+following by hand, using calculus if necessary. Verify your results using R.</br>
+a. P(X < 0), explain your answer</br>
+b. P(X > 0), explain your answer</br>
+c. P(X < 0.5)</br>
+d. P(X ≤ 0.5), explain your answer</br>
+e. P(0.1 < X < 1)</br>
+
+#### a.
+
+$$P(X < 0)=\int_{-\infty}^{0} e^{-x} dx =0$$
+
+#### b.
+
+$$P(X > 0)=\int_{0}^{\infty} e^{-x} dx = [-e^{-x}+C]_0^\infty =1$$
+Since x>0, the probability of x>0 is 1
+```{r}
+integrand <- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = Inf)
+```
+
+#### c.
+
+$$P(X <0.5)=\int_{0}^{0.5} e^{-x} dx = [-e^{-x}+C]_0^{0.5} = 1-\frac{1}{\sqrt{e}}$$
+```{r}
+integrand <- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = 0.5)
+```
+
+#### d.
+
+$$P(X \leq 0.5)=\int_{0}^{0.5} e^{-x} dx = [-e^{-x}+C]_0^{0.5} = 1-\frac{1}{\sqrt{e}}$$
+because x is continuous and the probability that x takes on any specific value x is 0
+
+```{r}
+integrand <- function(x) {exp(-x)}
+integrate(integrand, lower = 0, upper = 0.5)
+```
+
+#### d.
+
+$$P(0.1<X<1)=\int_{0.1}^{1} e^{-x} dx = [-e^{-x}+C]_{0.1}^{1} = e^{-1/10}-e^{-1}\simeq0.53$$
+
+```{r}
+integrand <- function(x) {exp(-x)}
+integrate(integrand, lower = 0.1, upper = 1)
+```
+
+### 3.5
+You are working on a mark–recapture study of boreal toads, Bufo boreas. </br>
+You predict that there is a 40% chance of capturing a marked toad for each of 30 traps that
+you establish.</br>
+a. What is the probability that exactly 20 marked toads will be found in the 30</br>
+traps? Calculate this by hand, and confirm your calculation using R.</br>
+b. What is the probability that up to 20 marked toads will be found? Use R.</br>
+c. How do these values change if your estimated probability of recapture is 30%,
+not 40%?</br>
+
+#### a.
+
+$$P(X=20)=\binom{30}{20}(0.4)^{20}(0.6)^{10}\simeq0.002$$
+
+```{r}
+dbinom(20,size = 30,prob = 0.4)
+```
+
+#### b.
+
+$$P(X\leq20) = \sum_{x\leq20}f(x) $$
+```{r}
+sum(dbinom(0:20, 30, 0.4))
+```
+
+#### c.
+The values become smaller in a but larger in b 
+
+```{r}
+dbinom(20,size = 30,prob = 0.3)
+sum(dbinom(0:20, 30, 0.3))
+```
+
+### 3.8
+
+What is the probability that a predator will capture its third prey item after six independent
+attempts given that its probability of capturing prey per attempt is 0.3?</br>
+
+```{r}
+choose(6,2)*(0.3)^2*(0.7)^4*0.3
+dbinom(2,6,0.3)*0.3
+```
+
+### 3.17
+Complete the following. Show all code.</br>
+a. Create an R object, X, with 10000 random observations from N(0, 1) using
+rnorm.</br>
+b. Square X, call this object Y.</br>
+c. Create an ecdf of Y. Now find the empirical probability P(Y < 1).</br>
+d. Assume X ~ χ2(1) and calculate P(X < 1). Comment on your results.</br>
+
+#### a.
+```{r results='hide'}
+x<-rnorm(10000,0,1)
+```
+
+#### b.
+```{r}
+y<-x^2
+```
+
+#### c.
+```{r}
+ecdf(y)
+ecdf(y)(1)
+```
+
+#### d.
+```{r}
+pchisq(1,df=1)
+```
+two probabilities are almost the same
+
+### 3.18
+
+Assume that the number of sightings for bald eagles (Haliaeetus leucocephalus) at a
+site over a 4-week period is Poisson distributed (temporally random) with a mean
+λ = 10. What is the probability of having 15 sightings over a 4-week period?
+
+```{r}
+dpois(15,10)
+```
+
+
+
